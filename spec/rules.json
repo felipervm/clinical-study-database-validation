@@ -1,0 +1,74 @@
+[
+  {
+    "id": "EC-01",
+    "requirement": "REQ-01",
+    "form": "IC/SV",
+    "name": "Consent before visits",
+    "condition": "Any visit date precedes consent date",
+    "action": "Query date chronology",
+    "severity": "High"
+  },
+  {
+    "id": "EC-02",
+    "requirement": "REQ-02",
+    "form": "SV",
+    "name": "Visit timing window",
+    "condition": "Day 14 outside baseline+11..17 or Day 28 outside baseline+25..31",
+    "action": "Review visit window",
+    "severity": "Medium"
+  },
+  {
+    "id": "EC-03",
+    "requirement": "REQ-03",
+    "form": "VS",
+    "name": "Required vital signs",
+    "condition": "SYSBP or PULSE is missing",
+    "action": "Query missing measurement",
+    "severity": "Medium"
+  },
+  {
+    "id": "EC-04",
+    "requirement": "REQ-04",
+    "form": "VS",
+    "name": "Plausibility review",
+    "condition": "SYSBP < 60 or > 250 OR PULSE < 35 or > 220",
+    "action": "Review unusual value; do not alter data",
+    "severity": "Medium"
+  },
+  {
+    "id": "EC-05",
+    "requirement": "REQ-05",
+    "form": "SV",
+    "name": "Duplicate visit",
+    "condition": "Same subject and visit label occurs more than once",
+    "action": "Review duplicate entry",
+    "severity": "High"
+  },
+  {
+    "id": "EC-06",
+    "requirement": "REQ-06",
+    "form": "IC/SV",
+    "name": "Date validity",
+    "condition": "Missing or malformed dates, or baseline date absent",
+    "action": "Review date completeness",
+    "severity": "High"
+  },
+  {
+    "id": "EC-07",
+    "requirement": "REQ-07",
+    "form": "IC",
+    "name": "Duplicate subject record",
+    "condition": "Subject ID appears more than once in the subject register",
+    "action": "Review enrollment duplication",
+    "severity": "High"
+  },
+  {
+    "id": "EC-08",
+    "requirement": "REQ-08",
+    "form": "DM",
+    "name": "Illustrative eligibility age",
+    "condition": "Age missing or outside 18..75",
+    "action": "Review fictional inclusion rule",
+    "severity": "Medium"
+  }
+]

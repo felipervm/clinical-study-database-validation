@@ -1,0 +1,96 @@
+{
+  "study": "OBS-26-001",
+  "fictional": true,
+  "forms": [
+    {
+      "form": "IC",
+      "name": "Informed consent",
+      "fields": [
+        {
+          "id": "SUBJID",
+          "type": "string",
+          "required": true,
+          "description": "Synthetic subject identifier"
+        },
+        {
+          "id": "ICDTC",
+          "type": "date",
+          "required": true,
+          "description": "Consent date YYYY-MM-DD"
+        }
+      ]
+    },
+    {
+      "form": "DM",
+      "name": "Demographics",
+      "fields": [
+        {
+          "id": "AGE",
+          "type": "integer",
+          "required": true,
+          "description": "Age at baseline, years",
+          "assumption": "18 to 75 for demo only"
+        },
+        {
+          "id": "SEX",
+          "type": "enum",
+          "required": true,
+          "allowed": [
+            "Female",
+            "Male",
+            "Intersex",
+            "Unknown"
+          ],
+          "description": "Fictional enrollment field"
+        }
+      ]
+    },
+    {
+      "form": "SV",
+      "name": "Study visits",
+      "fields": [
+        {
+          "id": "VISIT",
+          "type": "enum",
+          "required": true,
+          "allowed": [
+            "Baseline",
+            "Day 14",
+            "Day 28"
+          ]
+        },
+        {
+          "id": "VISITDTC",
+          "type": "date",
+          "required": true
+        },
+        {
+          "id": "VISIT_KEY",
+          "type": "string",
+          "required": true,
+          "description": "Subject + visit label"
+        }
+      ]
+    },
+    {
+      "form": "VS",
+      "name": "Vital signs",
+      "fields": [
+        {
+          "id": "SYSBP",
+          "type": "integer_or_null",
+          "unit": "mmHg",
+          "required": true,
+          "description": "Systolic blood pressure; missingness creates review query"
+        },
+        {
+          "id": "PULSE",
+          "type": "integer_or_null",
+          "unit": "bpm",
+          "required": true,
+          "description": "Heart rate; missingness creates review query"
+        }
+      ]
+    }
+  ]
+}
