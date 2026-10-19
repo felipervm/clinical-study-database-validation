@@ -53,3 +53,11 @@ node --check model.js
 node --check app.js
 ```
 All results should be reviewed locally or in CI before claiming test passes. The static site alone is not an EDC.
+
+
+
+## Everest presentation update
+
+Official Everest Aptos/Georgia typography, blue and magenta palette, and attributed company imagery. Independent fictional work sample; no endorsement implied. Form metadata explorer, rule/severity filtering, CSV export, and isolated passing/failing rule demonstrations preserve source observations.
+
+Validation: 17 Python tests, including JavaScript/Python parity, duplicate records, malformed dates and the Unix epoch date regression. JavaScript syntax checks pass. The browser date parser now treats epoch zero as a valid date and rejects year zero consistently with Python.
