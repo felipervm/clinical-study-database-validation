@@ -55,5 +55,39 @@ class TestEditChecks(unittest.TestCase):
         self.assertEqual(len(ids),8)
         self.assertTrue(all(q["rule"] in ids for q in self.findings))
 
+
+    def test_window_boundaries_and_outside(self):
+        import copy
+        for offset, expect in [(11, False),(17,False),(10,True),(18,True)]:
+            sample=copy.deepcopy(self.study)
+            sample["subjects"]=[sample["subjects"][0]]
+            baseline=parse(sample["subjects"][0]["visits"][0]["date"])
+            from datetime import timedelta
+            sample["subjects"][0]["visits"][1]["date"]=(baseline+timedelta(days=offset)).isoformat()
+            has_window=any(q["rule"]=="EC-02" for q in validate(sample))
+            self.assertEqual(has_window,expect,f"Offset {offset}")
+
+    def test_validation_never_modifies_source(self):
+        import copy
+        sample=copy.deepcopy(self.study)
+        snapshot=copy.deepcopy(sample)
+        validate(sample)
+        self.assertEqual(sample,snapshot)
+
+    def test_all_rules_have_uat_entries(self):
+        cases=json.loads((ROOT/"spec"/"uat_matrix.json").read_text())
+        rules=json.loads((ROOT/"spec"/"rules.json").read_text())
+        self.assertEqual({r["id"] for r in rules},{c["rule"] for c in cases})
+        self.assertEqual({r["requirement"] for r in rules},{c["requirement"] for c in cases})
+        self.assertEqual(len({c["test_id"] for c in cases}),len(cases))
+
+    def test_eligibility_boundaries(self):
+        import copy
+        for age,expected in [(17,True),(18,False),(75,False),(76,True)]:
+            sample=copy.deepcopy(self.study)
+            sample["subjects"]=[sample["subjects"][0]]
+            sample["subjects"][0]["age"]=age
+            self.assertEqual(any(q["rule"]=="EC-08" for q in validate(sample)),expected)
+
 if __name__=="__main__":
     unittest.main()

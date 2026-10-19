@@ -1,0 +1,74 @@
+[
+  {
+    "test_id": "UAT-01",
+    "name": "Consent chronology",
+    "requirement": "REQ-01",
+    "rule": "EC-01",
+    "fixture": "S-002",
+    "expected": "At least one review query for EC-01",
+    "review": "Manual review only; no source data overwrites"
+  },
+  {
+    "test_id": "UAT-02",
+    "name": "Visit window",
+    "requirement": "REQ-02",
+    "rule": "EC-02",
+    "fixture": "S-003",
+    "expected": "At least one review query for EC-02",
+    "review": "Manual review only; no source data overwrites"
+  },
+  {
+    "test_id": "UAT-03",
+    "name": "Missing vital sign",
+    "requirement": "REQ-03",
+    "rule": "EC-03",
+    "fixture": "S-003",
+    "expected": "At least one review query for EC-03",
+    "review": "Manual review only; no source data overwrites"
+  },
+  {
+    "test_id": "UAT-04",
+    "name": "Plausibility query",
+    "requirement": "REQ-04",
+    "rule": "EC-04",
+    "fixture": "S-004",
+    "expected": "At least one review query for EC-04",
+    "review": "Manual review only; no source data overwrites"
+  },
+  {
+    "test_id": "UAT-05",
+    "name": "Duplicate visit",
+    "requirement": "REQ-05",
+    "rule": "EC-05",
+    "fixture": "S-003",
+    "expected": "At least one review query for EC-05",
+    "review": "Manual review only; no source data overwrites"
+  },
+  {
+    "test_id": "UAT-06",
+    "name": "Malformed date",
+    "requirement": "REQ-06",
+    "rule": "EC-06",
+    "fixture": "S-005",
+    "expected": "At least one review query for EC-06",
+    "review": "Manual review only; no source data overwrites"
+  },
+  {
+    "test_id": "UAT-07",
+    "name": "Duplicate subject ID",
+    "requirement": "REQ-07",
+    "rule": "EC-07",
+    "fixture": "mutated test register",
+    "expected": "At least one review query for EC-07",
+    "review": "Manual review only; no source data overwrites"
+  },
+  {
+    "test_id": "UAT-08",
+    "name": "Fictional eligibility age",
+    "requirement": "REQ-08",
+    "rule": "EC-08",
+    "fixture": "S-004",
+    "expected": "At least one review query for EC-08",
+    "review": "Manual review only; no source data overwrites"
+  }
+]

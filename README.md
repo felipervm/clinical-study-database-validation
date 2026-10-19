@@ -37,3 +37,19 @@ Then open `http://localhost:8000`. Python 3.10+ recommended; no packages require
 
 ## Intended outreach
 Interested in opportunities in **clinical database design, data validation, data quality or junior clinical data operations**. This sample is a conversation starter to demonstrate a credible way to approach the work, not a substitute for the role's one-year EDC experience.
+
+## Technical quality review (V2)
+- **UAT traceability:** `spec/uat_matrix.json` maps all 8 requirements to edit checks and expected fixture cases; `spec/boundary_cases.json` specifies boundary checks.
+- **Non-destructive review:** exceptions generate review queries only. No source record is altered.
+- **Boundary checks:** ages 17/18/75/76 and visit window Day 10/11/17/18 are explicitly tested in Python.
+- **Conservative scope:** this remains a pure illustrative validation work sample, not a configured or validated EDC system.
+- **Scope gap:** true eCRF implementation, role-based access, edit-check triggering, lifecycle controls, audit trails, vendor-specific integration and formal clinical UAT remain out of scope.
+
+### Independent validation instructions
+```bash
+python -m unittest discover -s tests -v
+python src/validate.py
+node --check model.js
+node --check app.js
+```
+All results should be reviewed locally or in CI before claiming test passes. The static site alone is not an EDC.

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "BOUND-01",
+    "description": "Exactly Day 11 and Day 17 must fall within Day 14 ±3",
+    "expected": "No EC-02"
+  },
+  {
+    "id": "BOUND-02",
+    "description": "Day 10 and Day 18 must generate visit window queries",
+    "expected": "EC-02"
+  },
+  {
+    "id": "BOUND-03",
+    "description": "Impossible calendar dates must be rejected",
+    "expected": "EC-06"
+  },
+  {
+    "id": "BOUND-04",
+    "description": "Unusual vital-sign values are queried but not modified",
+    "expected": "EC-04; input unchanged"
+  },
+  {
+    "id": "BOUND-05",
+    "description": "Valid record should generate no queries",
+    "expected": "Empty array"
+  }
+]
